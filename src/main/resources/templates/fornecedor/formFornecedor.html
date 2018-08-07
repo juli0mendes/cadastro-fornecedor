@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-	<title>juliomendes90</title>
+	<title>FornecedorApp</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
 	<h1>Cadastro de Fornecedor</h1>
-	
-	<form action="" method="post">
+	<h3><a href="/listarFornecedores" class="waves-effect waves-ligth btn"><i class="material-icons left">format_list_bulleted</i>Lista de Fornecedores</a></h3>
+	<form class="container" method="post">
 		Nome: <input type="text" value="" name="nome">
-		Endereço: <input type="text" value="" name="endereco">
-		Telefone: <input type="tel" value="" name="telefone">
-		Email: <input type="email" value="" name="email">
+		<div class="row">
+			<div class="input-field col s6">
+				Endereço: <input type="text" value="" name="endereco">
+			</div>
+			<div class="input-field col s3">
+				Telefone: <input type="tel" value="" name="telefone">
+			</div>
+			<div class="input-field col s3">
+				Email: <input type="email" value="" name="email">
+			</div>
+		</div>
 		
-		<button type="submit">Salvar</button>
+		<button class="waves-effect waves-ligth btn" type="submit">Salvar</button>
 	</form>
+	
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>

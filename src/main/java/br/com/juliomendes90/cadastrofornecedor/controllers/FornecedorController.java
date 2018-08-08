@@ -2,6 +2,7 @@ package br.com.juliomendes90.cadastrofornecedor.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,9 +31,20 @@ public class FornecedorController {
 	
 	@RequestMapping(value = "/listarFornecedores")
 	public ModelAndView listarFornecedores() {
-		ModelAndView mv = new ModelAndView("/index");
 		Iterable<Fornecedor> listaFornecedores = this.repository.findAll();
+		
+		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("fornecedores", listaFornecedores);
+		
+		return mv;
+	}
+	
+	@RequestMapping("/{codigo}")
+	public ModelAndView detalhesFornecedor(@PathVariable("codigo") long codigo) {
+		Fornecedor fornecedor = this.repository.findByCodigo(codigo);
+		
+		ModelAndView mv = new ModelAndView("fornecedor/detalhesFornecedor");
+		mv.addObject("fornecedor", fornecedor);
 		
 		return mv;
 	}

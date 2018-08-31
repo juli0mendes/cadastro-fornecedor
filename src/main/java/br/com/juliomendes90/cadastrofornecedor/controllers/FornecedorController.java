@@ -51,6 +51,10 @@ public class FornecedorController {
 		ModelAndView mv = new ModelAndView("fornecedor/detalhesFornecedor");
 		mv.addObject("fornecedor", fornecedor);
 		
+		Iterable<Produto> produtos = this.produtoRepository.findByFornecedor(fornecedor);
+		
+		mv.addObject("produtos", produtos);
+		
 		return mv;
 	}
 	

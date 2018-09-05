@@ -12,6 +12,9 @@
 <body>
 	<h1>Cadastro de Fornecedor</h1>
 	<h3><a href="/listarFornecedores" class="waves-effect waves-ligth btn"><i class="material-icons left">format_list_bulleted</i>Lista de Fornecedores</a></h3>
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	
 	<form class="container" method="post">
 		Nome: <input type="text" value="" name="nome">
 		<div class="row">

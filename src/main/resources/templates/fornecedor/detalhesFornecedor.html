@@ -23,20 +23,14 @@
 
 	<div th:each="fornecedor : ${fornecedor}" class="container">
 		<div class="row">
-			<p>
-				Nome: <span th:text="${fornecedor.nome}"></span>
-			</p>
-			<p>
-				Endereço: <span th:text="${fornecedor.endereco}"></span>
-			</p>
-			<p>
-				Telefone: <span th:text="${fornecedor.telefone}"></span>
-			</p>
-			<p>
-				E-mail: <span th:text="${fornecedor.email}"></span>
-			</p>
+			<p>Nome: <span th:text="${fornecedor.nome}"></span></p>
+			<p>Endereço: <span th:text="${fornecedor.endereco}"></span></p>
+			<p>Telefone: <span th:text="${fornecedor.telefone}"></span></p>
+			<p>E-mail: <span th:text="${fornecedor.email}"></span></p>
 		</div>
 	</div>
+	
+	<th:block th:include="mensagemValidacao"></th:block>
 
 	<form method="post">
 		Descrição: <input type="text" value="" name="descricao" /> Código: <input

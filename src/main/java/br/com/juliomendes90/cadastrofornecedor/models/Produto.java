@@ -3,13 +3,16 @@ package br.com.juliomendes90.cadastrofornecedor.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Produto {
 
 	@Id
+	@NotEmpty
 	private String codigo;
 	
+	@NotEmpty
 	private String descricao;
 	
 	@ManyToOne	

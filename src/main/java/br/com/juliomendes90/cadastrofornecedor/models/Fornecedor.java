@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * 
@@ -27,12 +28,16 @@ public class Fornecedor implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 
+	@NotEmpty
 	private String nome;
 
+	@NotEmpty
 	private String endereco;
 
+	@NotEmpty
 	private String telefone;
 
+	@NotEmpty
 	private String email;
 	
 	@OneToMany

@@ -6,31 +6,40 @@
 	<title>FornecedorApp</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+	<link rel="stylesheet" href="style/styleCss.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-	<h1>Cadastro de Fornecedor</h1>
-	<h3><a href="/listarFornecedores" class="waves-effect waves-ligth btn"><i class="material-icons left">format_list_bulleted</i>Lista de Fornecedores</a></h3>
+	<nav>
+		<div class="nav-wrapper">
+      		<a href="#" class="brand-logo">Cadastro de Fornecedor</a>
+      		<ul id="nav-mobile" class="right hide-on-med-and-down">
+        		<li><a href="/listarFornecedores" class="waves-effect waves-ligth btn">Lista de Fornecedores</a></li>        	
+      		</ul>
+    	</div>
+	</nav>
 	
 	<th:block th:include="mensagemValidacao"></th:block>
 	
-	<form class="container" method="post">
-		Nome: <input type="text" value="" name="nome">
-		<div class="row">
-			<div class="input-field col s6">
-				Endereço: <input type="text" value="" name="endereco">
+	<div class="container formFornecedor">
+		<form class="container" method="post">
+			Nome: <input type="text" value="" name="nome">
+			<div class="row">
+				<div class="input-field col s6">
+					Endereço: <input type="text" value="" name="endereco">
+				</div>
+				<div class="input-field col s3">
+					Telefone: <input type="tel" value="" name="telefone">
+				</div>
+				<div class="input-field col s3">
+					Email: <input type="email" value="" name="email">
+				</div>
 			</div>
-			<div class="input-field col s3">
-				Telefone: <input type="tel" value="" name="telefone">
-			</div>
-			<div class="input-field col s3">
-				Email: <input type="email" value="" name="email">
-			</div>
-		</div>
-		
-		<button class="waves-effect waves-ligth btn" type="submit">Salvar</button>
-	</form>
+			
+			<button class="waves-effect waves-ligth btn" type="submit">Salvar</button>
+		</form>
+	</div>
 	
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

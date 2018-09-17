@@ -8,4 +8,5 @@ import br.com.juliomendes90.cadastrofornecedor.models.Produto;
 public interface ProdutoRepository extends CrudRepository<Produto, String> {
 
 	Iterable<Produto> findByFornecedor(Fornecedor fornecedor);
+	Produto findByCodigo(String codigo);
 }

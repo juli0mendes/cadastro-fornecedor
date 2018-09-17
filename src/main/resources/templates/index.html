@@ -15,7 +15,7 @@
 		<div class="nav-wrapper">
       		<a href="#" class="brand-logo">Lista de Fornecedores</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="/cadastrarFornecedor" class="waves-effect waves-light btn">Cadastrar Fornecedor</a></li>        	
+        		<li><a href="/cadastrarFornecedor" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Fornecedor</a></li>        	
       		</ul>
     	</div>
 	</nav>	
@@ -27,6 +27,7 @@
 				<th>Endereço</th>
 				<th>Telefone</th>
 				<th>Email</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
 
@@ -36,6 +37,7 @@
 				<td><span th:text="${fornecedor.endereco}"></span></td>
 				<td><span th:text="${fornecedor.telefone}"></span></td>
 				<td><span th:text="${fornecedor.email}"></span></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('FC#deletarFornecedor').arg(0, fornecedor.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

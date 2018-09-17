@@ -45,7 +45,8 @@
 		<thead>
 			<tr>
 				<th>Código</th>
-				<th>Descrição</th>	
+				<th>Descrição</th>
+				<th>Deletar</th>	
 			</tr>
 		</thead>
 		
@@ -53,6 +54,7 @@
 			<tr th:each="produto : ${produtos}">
 				<td><span th:text="${produto.codigo}"></span></td>
 				<td><span th:text="${produto.descricao}"></span></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('FC#deletarProduto').arg(0, produto.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

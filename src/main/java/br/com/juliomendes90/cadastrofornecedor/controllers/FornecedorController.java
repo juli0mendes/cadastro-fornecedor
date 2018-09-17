@@ -32,7 +32,6 @@ public class FornecedorController {
 
 	@RequestMapping(value = "/cadastrarFornecedor", method = RequestMethod.POST)
 	public String form(@Valid Fornecedor fornecedor, BindingResult result, RedirectAttributes attributes) {
-
 		if (result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
 
@@ -68,6 +67,31 @@ public class FornecedorController {
 		mv.addObject("produtos", produtos);
 
 		return mv;
+	}
+	
+	@RequestMapping(value = "/deletarFornecedor")
+	public String deletarFornecedor(long codigo) {
+		Fornecedor fornecedor = this.fornecedorRepository.findByCodigo(codigo);
+		
+		Iterable<Produto> produtos = this.produtoRepository.findByFornecedor(fornecedor);
+		
+		this.produtoRepository.deleteAll(produtos);
+		this.fornecedorRepository.delete(fornecedor);
+		
+		return "redirect:/listarFornecedores";
+	}
+
+	@RequestMapping(value = "/deletarProduto")
+	public String deletarProduto(String codigo) {
+		Produto produto = this.produtoRepository.findByCodigo(codigo);
+		this.produtoRepository.delete(produto);
+		
+		Fornecedor fornecedor = produto.getFornecedor();
+		
+		long codigoLong = fornecedor.getCodigo();
+		String cod = "" + codigoLong;
+		
+		return "redirect:/" + cod;
 	}
 
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.POST)
